@@ -1,0 +1,31 @@
+<!-- <p>login works!</p> -->
+<div class=" container rounded-3 border border-2 border-dark my-5 bg-secondary w-25">
+<div class="container">
+    <h3>Login</h3> <h5> Dont have account yet?<a routerLink="/register" class="register">  Register User</a> here</h5>
+    
+    <h5 class="   text-center"> </h5>
+    <!-- <h5 class="   text-center"> <a   id="registerid" routerLink="/inbox">  Get Logged In User via Token</a></h5> -->
+    <form (ngSubmit)="onSubmit()" [formGroup]="authForm" class="form-group">
+       
+        <app-input inputType="email" label="Email:" [control]="authForm.get('email')"></app-input>
+        <!-- {{authForm.get('email').errors |json}} -->
+        <app-input inputType="password" label="password:" [control]="authForm.get('password')"></app-input>
+        <!-- {{authForm.get('password').errors |json}} -->
+        <div *ngIf="authForm.errors" class="text-danger">
+            <p *ngIf=" authForm['errors']['credentials']">
+           Invalid Email or password
+            </p>
+           
+        </div>
+        <div>
+            <button class="btn btn-primary mb-3">Submit</button>
+        </div>
+        <!-- <div *ngIf="authForm.errors" class="text-danger">
+         
+            Email or password incorrect
+        </div> -->
+       
+    </form>
+</div>
+
+</div>

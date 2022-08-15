@@ -1,0 +1,35 @@
+<!-- <p>input works!</p> -->
+<div class="form-group " >
+    <label>{{label}}</label>
+    <input [type]="inputType" [formControl]="control" class="form-control " />
+
+    <div *ngIf="showErrors()" >
+        <p *ngIf="control.errors.required" class="text-danger">
+          Value is required
+        </p>
+        <p *ngIf="control.errors.minlength" class="text-danger">
+          Value you entered is
+          {{ control.errors.minlength.actualLength }}
+          characters long, but it must be at aleast
+          {{ control.errors.minlength.requiredLength }}
+          characters
+        </p>
+        <p *ngIf="control.errors.maxlength" class="text-danger">
+          Value you entered is
+         
+          characters long, but it cannot be longer than
+          {{ control.errors.maxlength.requiredLength }}
+          characters
+        </p>
+        <p *ngIf="control.errors.pattern" class="text-danger">
+          Invalid format
+        </p>
+       
+       
+        <p *ngIf="control.errors.Emailnotexist" class="text-danger">
+          Can't tell if username is taken
+        </p>
+       
+      </div>
+    
+</div>
